@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
 import time
-
 import pandas as pd
 import pdfinfo
 import csv
@@ -17,8 +16,8 @@ def file_name(file_dir):
     # print("type root",type(root))
     # print("type dir",type(dirs))
     # print("type files",type(files))
-    L = []
-    name = []
+    L = [] #文件路径+文件名
+    name = [] #文件名
     for file in files :
         #print(file)
         name.append(file)
@@ -34,14 +33,9 @@ import time
 import warnings
 from openpyxl import Workbook
 
-
-
-
-
 if __name__ == "__main__" :
     wb = Workbook() #创建一个工作表
     sheet = wb.active #
-
     filedir,names=file_name(file_dir)
     csv_file = r'C:\Users\HailiangJi\python\aa.csv'
     ff = 1
@@ -49,24 +43,24 @@ if __name__ == "__main__" :
 
         dictpdf=pdfinfo.extract_content(flist)  #输入文件，返回pdf文档信息，返回的格式字典
         i=2
-        ii=2
+
         keylist = list(dictpdf.keys())
         valuelist=list(dictpdf.values())
         sheet.cell(row=ff+1, column=1).value = names[ff-1]
         print('names[ff-1]',names[ff-1])
         sheet.cell(row=1, column=1).value = "pdf"
         if ff == 1:
+            ii = 2
             for key in keylist:
                 print('key',key)
                 sheet.cell(row=1, column=ii).value = key
                 ii += 1
-                print("ii",ii)
         for value in valuelist:
             print("value",value)
             sheet.cell(row=ff+1, column=i).value = value
-            print('ff',ff)
             i += 1
-            print('i',i)
+        print('i',i)
+        print("ii", ii)
         ff += 1
         wb.save(r'demo.xlsx')
 

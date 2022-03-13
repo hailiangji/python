@@ -9,7 +9,7 @@ from scipy.fftpack import fft
 import numpy as np
 from math import pi
 
-file ="E:\\WORK\\_Sigtrum\\__Board\\_Momhilsar\\fab2\\HW debug\\ENOB_DC\\10MHz-224Msps.txt" #224Msps
+file =r"E:\WORK\_Sigtrum\__Board\Momhilsar\fab2\HW debug\ENOB_DC\10MHz-224Msps.txt" #224Msps
 
 with open(file ,"r" ) as f:
     b=f.read()
