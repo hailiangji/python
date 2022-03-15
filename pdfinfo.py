@@ -10,7 +10,7 @@ testfile = r'C:\Users\HailiangJi\Desktop\ADI-混合信号电子系统PDF\MT-001.
 def extract_content(pdf_path):
     # 内容提取，使用 pdfplumber 打开 PDF，用于提取文本
     #with pdfplumber.open(pdf_path) as pdf_file:
-        # 使用 PyPDF2 打开 PDF 用于提取图片
+    # 使用 PyPDF2 打开 PDF 用于提取图片
     try:
         f=open(pdf_path, "rb")
         pdf = PyPDF2.PdfFileReader(f)
