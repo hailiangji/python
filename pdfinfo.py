@@ -14,6 +14,7 @@ def extract_content(pdf_path):
     try:
         f=open(pdf_path, "rb")
         pdf = PyPDF2.PdfFileReader(f)
+        yy=pdf.getDocumentInfo().title
         pdfinfo=dict(pdf.getDocumentInfo()) #将读取出来的
         test=pdf.getPageLayout()
         print("getoutlines ",test)
@@ -34,4 +35,4 @@ def extract_content(pdf_path):
     return pdfinfo  #返回文件信息，字典形式
 
 if __name__ == "__main__":
-    extract_content(r'C:\Users\HailiangJi\Desktop\ADI-混合信号电子系统PDF\MT-229.pdf')
+    extract_content(r'D:\BaiduNetdiskDownload\NB\2tone_IDM measurement techniques-7 rules to ensure the best characterization of non-linear RF components.pdf')
